@@ -40,7 +40,8 @@ class RedirectViewTests(APITestCase):
 
         response = self.client.get(url)
 
-        self.assertEqual(response.status_code, status.HTTP_302_FOUND)
+        self.assertEqual(response.status_code,
+                         status.HTTP_301_MOVED_PERMANENTLY)
         self.assertEqual(response.url, "http://example.com/")
 
         self.shortned_url.refresh_from_db()
