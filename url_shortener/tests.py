@@ -53,3 +53,29 @@ class RedirectViewTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
+
+class StatsViewTests(APITestCase):
+
+    def setUp(self):
+        self.shortned_url = ShortenedUrl.objects.create(
+            original_url="http://example.com/",
+            short_code="aabbcc",
+            access_count=5,
+        )
+
+    def test_get_stats_success(self):
+        url = reverse("stats_url", kwargs={"short_code": "aabbcc"})
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["short_code"], "aabbcc")
+        self.assertEqual(response.data["access_count"], 5)
+        self.assertIn("last_accessed", response.data)
+
+    def test_get_stats_not_found(self):
+        url = reverse("stats_url", kwargs={"short_code": "nothing"})
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
