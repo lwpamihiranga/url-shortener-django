@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
+
+from .views import ShortenUrlView, StatsView
 
 urlpatterns = [
     # Add your app's URL patterns here
-    path('shorten/', views.ShortenUrlView.as_view(), name="shorten_url"),
-    path('stats/<str:short_code>/', views.StatsView.as_view(), name="stats-url"),
+    path('shorten/', ShortenUrlView.as_view(), name="shorten_url"),
+    path('stats/<str:short_code>/', StatsView.as_view(), name="stats-url"),
 ]
