@@ -17,7 +17,6 @@ class ShortenUrlView(APIView):
         existing_entry = ShortenedUrl.objects.filter(
             original_url=original_url).first()
 
-        print(request.build_absolute_uri)
         if existing_entry:
             return Response(
                 {"short_url": request.build_absolute_uri(
