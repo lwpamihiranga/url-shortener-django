@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect
+from rest_framework.throttling import AnonRateThrottle
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,6 +9,8 @@ from .models import ShortenedUrl
 
 
 class ShortenUrlView(APIView):
+    throttle_classes = [AnonRateThrottle]
+
     def post(self, request):
         original_url = request.data.get("original_url")
 
@@ -35,6 +38,8 @@ class ShortenUrlView(APIView):
 
 
 class RedirectView(APIView):
+    throttle_classes = [AnonRateThrottle]
+
     def get(self, request, short_code):
         url_obj = get_object_or_404(ShortenedUrl, short_code=short_code)
         url_obj.access_count += 1
@@ -43,6 +48,8 @@ class RedirectView(APIView):
 
 
 class StatsView(APIView):
+    throttle_classes = [AnonRateThrottle]
+
     def get(self, request, short_code):
         url_obj = get_object_or_404(ShortenedUrl, short_code=short_code)
         return Response({"short_code": url_obj.short_code, "access_count": url_obj.access_count})
