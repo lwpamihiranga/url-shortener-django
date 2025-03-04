@@ -24,6 +24,7 @@ class ShortenedUrl(models.Model):
     original_url = models.URLField(unique=True)
     short_code = models.CharField(max_length=10, unique=True, blank=True)
     access_count = models.PositiveIntegerField(default=0)
+    last_accessed = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.short_code:
