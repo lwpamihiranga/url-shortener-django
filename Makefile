@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := run 
 
-.PHONY:migrations migrate run
+.PHONY:migrations migrate run test
 migrations:
 	python manage.py makemigrations
 
@@ -9,3 +9,6 @@ migrate:
 
 run:
 	python manage.py runserver
+
+test:
+	python manage.py test
