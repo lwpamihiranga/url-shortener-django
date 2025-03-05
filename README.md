@@ -1,3 +1,5 @@
+![Workflow Status](https://github.com/alicia-insurance/alicia-medior-be-assignment/actions/workflows/run-tests.yml/badge.svg)
+
 # URL Shortener - Alicia BE Assignment - Medior
 
 ## Introduction
