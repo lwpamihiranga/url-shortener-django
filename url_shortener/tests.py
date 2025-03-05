@@ -15,6 +15,14 @@ class ShortenUrlViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIn("short_url", response.data)
 
+    def test_invalid_url(self):
+        url = reverse("shorten_url")
+        data = {"original_url": "invalid_url"}
+
+        response = self.client.post(url, data)
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
 
 class RedirectViewTests(APITestCase):
     def setUp(self):
