@@ -57,8 +57,8 @@ DATABASES = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '10/minute',
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "10/minute",
     }
 }
 
