@@ -24,6 +24,36 @@ class ShortenUrlViewTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_custom_short_code_success(self):
+        custom_short_code = "testcode"
+
+        url = reverse("shorten_url")
+        data = {"original_url": "http://example.com/",
+                "short_code": custom_short_code}
+
+        response = self.client.post(url, data)
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertIn("short_url", response.data)
+        self.assertEqual(response.data["short_url"].split(
+            "short/")[1], f"{custom_short_code}/")
+
+    def test_existing_custom_short_code(self):
+        custom_short_code = "testcode"
+
+        ShortenedUrl.objects.create(
+            original_url="http://example.com/",
+            short_code=custom_short_code,
+        )
+
+        url = reverse("shorten_url")
+        data = {"original_url": "http://example.com/",
+                "short_code": custom_short_code}
+
+        response = self.client.post(url, data)
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
 
 class RedirectViewTests(APITestCase):
     def setUp(self):
