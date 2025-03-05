@@ -24,7 +24,7 @@ def generate_short_code(url):
 
 class ShortenedUrl(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    original_url = models.URLField(unique=False)
+    original_url = models.URLField(unique=False, max_length=2048)
     short_code = models.CharField(max_length=10, unique=True, blank=True)
     access_count = models.PositiveIntegerField(default=0)
     last_accessed = models.DateTimeField(auto_now=True)
