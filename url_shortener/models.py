@@ -1,5 +1,5 @@
 import hashlib
-import base64
+import time
 
 from django.db import models
 
@@ -7,13 +7,16 @@ from django.db import models
 def generate_short_code(url):
     """Generate the short code for the URL"""
 
-    hash_digest = hashlib.sha256(url.encode()).digest()
-    short_code = base64.urlsafe_b64encode(hash_digest)[:6].decode("utf-8")
+    timestamp = str(int(time.time()))
+    combined_string = url + timestamp
+    hash_object = hashlib.sha256(combined_string.encode())
+    hash_hex = hash_object.hexdigest()
+
+    short_code = hash_hex[:6]
 
     counter = 1
     while ShortenedUrl.objects.filter(short_code=short_code).exists():
-        short_code = base64.urlsafe_b64encode(
-            hash_digest)[:5].decode("utf-8") + str(counter)
+        short_code = hash_hex[:5] + str(counter)
         counter += 1
 
     return short_code
