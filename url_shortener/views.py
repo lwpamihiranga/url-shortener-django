@@ -12,18 +12,6 @@ class ShortenUrlView(APIView):
     throttle_classes = [AnonRateThrottle]
 
     def post(self, request):
-        original_url = request.data.get("original_url")
-
-        existing_entry = ShortenedUrl.objects.filter(
-            original_url=original_url).first()
-
-        if existing_entry:
-            return Response(
-                {"short_url": request.build_absolute_uri(
-                    f"/short/{existing_entry.short_code}/")},
-                status=status.HTTP_200_OK
-            )
-
         serializer = ShortenedUrlSerializer(data=request.data)
         if serializer.is_valid():
             url_instance = serializer.save()
