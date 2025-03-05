@@ -56,6 +56,7 @@ class ShortenUrlViewTests(APITestCase):
 
 
 class RedirectViewTests(APITestCase):
+
     def setUp(self):
         self.shortned_url = ShortenedUrl.objects.create(
             original_url="http://example.com/",
