@@ -1,4 +1,3 @@
-
 from rest_framework import serializers
 from url_shortener.models import ShortenedUrl
 
