@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from url_shortener.serializers import StatsSerializer
+from url_shortener.serializers.stats_serializer import StatsSerializer
 from url_shortener.models import ShortenedUrl
 
 

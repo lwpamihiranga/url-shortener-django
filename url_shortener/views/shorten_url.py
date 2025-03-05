@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from url_shortener.serializers import ShortenedUrlSerializer
+from url_shortener.serializers.url_serializer import ShortenedUrlSerializer
 
 
 class ShortenUrlView(APIView):
