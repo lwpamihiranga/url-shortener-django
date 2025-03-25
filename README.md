@@ -1,11 +1,11 @@
-# URL Shortener - Alicia BE Assignment - Medior
+![Workflow Status](https://github.com/lwpamihiranga/url-shortener-django/actions/workflows/run-tests.yml/badge.svg)
+
+# URL Shortener - Django REST Framework 
 
 ## Introduction
-Welcome to the **URL Shortener** assignment!
+Welcome to the **URL Shortener**!
 
-Your task is to implement a **simple URL shortener API** using **Django** and **Django REST Framework (DRF)**. This application allows users to submit a long URL and receive a shortened URL. When a user accesses the short URL, they should be redirected to the original URL.  
-
-We've provided a **basic Django project setup** to save you time. Your job is to implement the required functionality using **best practices**.
+This implement a **simple URL shortener API** using **Django** and **Django REST Framework (DRF)**. This application allows users to submit a long URL and receive a shortened URL. When a user accesses the short URL, they should be redirected to the original URL.  
 
 ---
 
@@ -18,7 +18,7 @@ Imagine you're building a **miniature version of bit.ly** or **TinyURL**. Users 
 
 ---
 
-## Assignment Requirements
+## Requirements
 You need to implement the following features:  
 
 * **Shorten a URL**: Accept a long URL via an API endpoint and return a unique short URL.  
@@ -67,27 +67,3 @@ python manage.py runserver
 | `POST`  | `/api/shorten/`       | Submit a long URL and receive a short URL. |
 | `GET`   | `/short/<short_code>/` | Redirect to the original long URL. |
 | (Bonus) `GET`  | `/api/stats/<short_code>/` | Retrieve stats for a short URL (e.g., access count). |
-
-## What We’re Evaluating
-* Code quality & structure
-* Django best practices
-* API design & error handling
-* Database modeling
-* Security considerations
-* Performance optimizations (if any)
-
-## Questions to Think About
-After submission, we may ask you some questions, such as:
-* How did you generate the short URL?
-* How would you scale this application for millions of users?
-* What security concerns exist with URL shorteners?
-* ...
-
-## Submission Instructions
-* Fork this repository.
-* Implement your solution in a new branch.
-* Create a pull request (PR) with a summary of your implementation.
-* Be ready to discuss your decisions during the review!
-
-## Good Luck & Have Fun!
-Happy coding! 😃 If you have any questions, feel free to reach out.
