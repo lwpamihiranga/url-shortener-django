@@ -67,3 +67,36 @@ python manage.py runserver
 | `POST`  | `/api/shorten/`       | Submit a long URL and receive a short URL. |
 | `GET`   | `/short/<short_code>/` | Redirect to the original long URL. |
 | (Bonus) `GET`  | `/api/stats/<short_code>/` | Retrieve stats for a short URL (e.g., access count). |
+
+## **Screenshots**:
+- Using Makefile commands
+
+![1-make-file-in-action](https://github.com/user-attachments/assets/5f54e322-e4a7-4348-a9e1-a6314232c769)
+
+- Generate short URL
+
+![2-generate-short-url](https://github.com/user-attachments/assets/6c006040-aa71-4b6b-90d6-6b8fb680957b)
+
+- Generate short URL with custom code
+
+![3-generate-short-url-with-custom](https://github.com/user-attachments/assets/8bbc54be-6758-41c1-a7e8-20ca68bb904a)
+
+- Redirect to URL
+
+![4-redirect-to-url](https://github.com/user-attachments/assets/a77feff0-de5b-4668-9e12-286118721de6)
+
+- Get stats
+
+![5-get-stats](https://github.com/user-attachments/assets/a4860c90-08d5-4cb2-b976-75f04adf4647)
+
+- GitHub Actions run tests on PR Open (Tested on a personal private repo)
+
+![6-workflow-test-run-on-pr](https://github.com/user-attachments/assets/a63c0bd8-e139-4fcf-97c6-9c4bea4f3386)
+
+- GitHub Actions run tests on PR merge to main (Tested on a personal private repo)
+
+![7-workflow-test-run-on-merge](https://github.com/user-attachments/assets/5ff9b972-875b-47da-8a05-709b8a1c7993)
+
+- Workflow Status Badge (Screenshot is from a personal private repo)
+
+![8-workflow-status-badge](https://github.com/user-attachments/assets/e9627804-24e6-42c3-ab3d-510886438e30)
